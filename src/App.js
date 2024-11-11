@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Navigation from './components/Navigation';
+import HomePage from './components/HomePage';
+import PetsPage from './components/PetsPage';
+import RegisterPage from './components/RegisterPage';
+import ReleasePetPage from './components/ReleasePetPage';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const renderPage = () => {
+    switch(currentPage) {
+      case 'home':
+        return <HomePage />;
+      case 'pets':
+        return <PetsPage />;
+      case 'register':
+        return <RegisterPage />;
+      case 'release':
+        return <ReleasePetPage />;
+      default:
+        return <HomePage />;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      <Navigation setCurrentPage={setCurrentPage} />
+      {renderPage()}
     </div>
   );
-}
+};
 
 export default App;
