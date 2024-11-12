@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import PetsPage from './components/PetsPage';
 import RegisterPage from './components/RegisterPage';
 import ReleasePetPage from './components/ReleasePetPage';
+import Footer from './components/Footer';
 import './App.css';
 
 const App = () => {
@@ -25,9 +26,10 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navigation setCurrentPage={setCurrentPage} />
-      {renderPage()}
+      <div className="flex-grow">{renderPage()}</div>
+      <Footer /> 
     </div>
   );
 };
