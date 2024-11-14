@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PetCard from './PetCard';
 import { FaCat, FaDog } from 'react-icons/fa';
+import placeholderImage from '../assets/image-placeholder-300x200.png';
 
 const PetsPage = () => {
   const [filteredPets, setFilteredPets] = useState([]);
@@ -9,41 +10,40 @@ const PetsPage = () => {
 
   // Sample pet data
   const availablePets = [
-    { id: 1, name: "Buddy", type: "Dog", breed: "retriever-golden", age: 2, description: "Clingy dog looking for a loving home" },
-    { id: 2, name: "Bella", type: "Dog", breed: "labrador", age: 1, description: "Energetic puppy with a heart of gold" },
-    { id: 3, name: "Max", type: "Dog", breed: "bulldog", age: 3, description: "Laid-back companion with a friendly demeanor" },
-    { id: 4, name: "Rocky", type: "Dog", breed: "beagle", age: 2, description: "Playful dog that loves adventure" },
-    { id: 5, name: "Charlie", type: "Dog", breed: "dachshund", age: 4, description: "Small dog with a big personality" },
-    { id: 6, name: "Whiskers", type: "Cat", breed: "siamese", age: 3, description: "Gentle and affectionate cat who loves to cuddle" },
-    { id: 7, name: "Shadow", type: "Cat", breed: "persian", age: 4, description: "A curious cat with a playful spirit" },
-    { id: 8, name: "Mittens", type: "Cat", breed: "maine", age: 5, description: "Loyal and gentle giant of a cat" },
-    { id: 9, name: "Luna", type: "Cat", breed: "bengal", age: 2, description: "Active cat with a unique coat pattern" },
-    { id: 10, name: "Pumpkin", type: "Cat", breed: "tabby", age: 3, description: "Loves to play and snuggle" }
+    { id: 1, name: "Buddy", type: "Dog", breed: "Golden Retriever", age: 2, description: "Clingy dog looking for a loving home" },
+    { id: 2, name: "Bella", type: "Dog", breed: "Labrador", age: 1, description: "Energetic puppy with a heart of gold" },
+    { id: 3, name: "Max", type: "Dog", breed: "Japanese Spitz", age: 3, description: "Laid-back companion with a friendly demeanor" },
+    { id: 4, name: "Rocky", type: "Dog", breed: "Beagle", age: 2, description: "Playful dog that loves adventure" },
+    { id: 5, name: "Charlie", type: "Dog", breed: "Dachshund", age: 4, description: "Small dog with a big personality" },
+    { id: 6, name: "Whiskers", type: "Cat", breed: "Siamese", age: 3, description: "Gentle and affectionate cat who loves to cuddle" },
+    { id: 7, name: "Shadow", type: "Cat", breed: "Persian", age: 4, description: "A curious cat with a playful spirit" },
+    { id: 8, name: "Mittens", type: "Cat", breed: "Maine", age: 5, description: "Loyal and gentle giant of a cat" },
+    { id: 9, name: "Luna", type: "Cat", breed: "Bengal", age: 2, description: "Active cat with a unique coat pattern" },
+    { id: 10, name: "Pumpkin", type: "Cat", breed: "Tabby", age: 3, description: "Loves to play and snuggle" }
   ];
 
-  // Map breeds to local image paths
+  // Breeds
   const petImages = {
-    "retriever-golden": require('../assets/images/pets/retriever-golden.jpg'),
-    "labrador": require('../assets/images/pets/labrador.jpg'),
-    "bulldog": require('../assets/images/pets/bulldog.jpg'),
-    "beagle": require('../assets/images/pets/beagle.jpg'),
-    "dachshund": require('../assets/images/pets/dachshund.jpg'),
-    "siamese": require('../assets/images/pets/siamese.jpg'),
-    "persian": require('../assets/images/pets/persian.jpg'),
-    "maine": require('../assets/images/pets/maine.jpg'),
-    "bengal": require('../assets/images/pets/bengal.jpg'),
-    "tabby": require('../assets/images/pets/tabby.jpg')
+    "Golden Retriever": require('../assets/pet-images/retriever-golden.jpg'),
+    "Labrador": require('../assets/pet-images/labrador.jpg'),
+    "Japanese Spitz": require('../assets/pet-images/spitz.jpg'),
+    "Beagle": require('../assets/pet-images/beagle.jpg'),
+    "Dachshund": require('../assets/pet-images/dachshund.jpg'),
+    "Siamese": require('../assets/pet-images/siamese.jpg'),
+    "Persian": require('../assets/pet-images/persian.jpg'),
+    "Maine": require('../assets/pet-images/maine.jpg'),
+    "Bengal": require('../assets/pet-images/bengal.jpg'),
+    "Tabby": require('../assets/pet-images/tabby.jpg')
   };
-
-  // Placeholder image URL
-  const placeholderImage = "https://via.placeholder.com/300x200.png?text=No+Image+Available";
 
   // Filter pets based on search term and type
   useEffect(() => {
     const filtered = availablePets.filter(pet => {
-      const matchesBreed = pet.breed.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesNameOrBreed = 
+        pet.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        pet.breed.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesType = searchType ? pet.type.toLowerCase() === searchType.toLowerCase() : true;
-      return matchesBreed && matchesType;
+      return matchesNameOrBreed && matchesType;
     });
     setFilteredPets(filtered);
   }, [searchTerm, searchType]);

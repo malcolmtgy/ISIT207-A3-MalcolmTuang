@@ -1,14 +1,13 @@
 import React from 'react';
 
-function HomePage() {
+function HomePage({setCurrentPage}) {
   return (
     <div>
-
       <div className="container fade-in card hero-image">
         <div className="hero-content">
           <h1>Welcome to Pet Heaven</h1>
           <p>Ushering pets into the gates of your home!</p>
-          <button className="button">Adopt Now!</button>
+          <button onClick={() => setCurrentPage('pets')} className='button'>Adopt Now!</button>
         </div>
       </div>
       
