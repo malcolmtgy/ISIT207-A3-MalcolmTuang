@@ -230,6 +230,63 @@ body {
   margin-bottom: 0.5rem;
 }
 
+
+.adoption-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7); /* Greyed-out background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.adoption-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.adoption-form h2 {
+  margin-bottom: 20px;
+}
+
+.adoption-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.adoption-form input,
+.adoption-form textarea,
+.adoption-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.adoption-form .button {
+  margin-right: 8px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.adoption-form .button:hover {
+  background-color: #45a049;
+}
+
 /* Animations */
 .fade-in {
   opacity: 0;
