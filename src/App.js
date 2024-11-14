@@ -5,6 +5,7 @@ import PetsPage from './components/PetsPage';
 import RegisterPage from './components/RegisterPage';
 import ReleasePetPage from './components/ReleasePetPage';
 import Footer from './components/Footer';
+
 import './App.css';
 
 const App = () => {

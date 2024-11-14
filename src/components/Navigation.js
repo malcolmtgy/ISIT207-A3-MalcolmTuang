@@ -1,11 +1,16 @@
 import React from 'react';
+import {IoPawSharp} from 'react-icons/io5';
 
 const Navigation = ({ setCurrentPage }) => (
   <nav className="nav">
     <div className="nav-container">
       <div className="nav-brand">
+      <button onClick={() => setCurrentPage('home')} className="nav-brand">
+        <IoPawSharp className="nav-icon" />
         <span>Pet Heaven</span>
+      </button>
       </div>
+
       <div className="nav-links">
         <button onClick={() => setCurrentPage('home')} className="nav-button">
           <span>Home</span>

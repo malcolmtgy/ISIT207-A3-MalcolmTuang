@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PetCard = ({ pet }) => (
-  <div className="pet-card">
+  <div className="pet-card fade-in">
     <img src={pet.image} alt={pet.name} className="pet-image" />
     <div className="pet-info">
       <h3 className="pet-name">{pet.name}</h3>

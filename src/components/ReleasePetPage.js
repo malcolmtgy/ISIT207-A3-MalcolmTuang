@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReleasePetPage = () => (
-  <div className="container">
+  <div className="container fade-in">
     <div className="card form-container">
       <h2 className="card-title">Release a Pet</h2>
       <p className="card-description">Please provide details about the pet you wish to release</p>

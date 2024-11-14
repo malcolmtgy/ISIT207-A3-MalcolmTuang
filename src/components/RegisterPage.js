@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RegisterPage = () => (
-  <div className="container">
+  <div className="container fade-in">
     <div className="card form-container">
       <h2 className="card-title">Register as a Supporter</h2>
       <p className="card-description">Join our community and help make a difference</p>
