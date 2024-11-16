@@ -12,8 +12,8 @@ const Navigation = ({ setCurrentPage }) => (
       </div>
 
       <div className="nav-links">
-        <button onClick={() => setCurrentPage('home')} className="nav-button">
-          <span>Home</span>
+        <button onClick={() => setCurrentPage('aboutus')} className="nav-button">
+          <span>About Us</span>
         </button>
         <button onClick={() => setCurrentPage('pets')} className="nav-button">
           <span>Available Pets</span>

@@ -26,30 +26,17 @@ function HomePage({setCurrentPage}) {
         <p className="card-description">
           Donations help us care for our animals, covering food, medical expenses, and housing.
           Every contribution, big or small, makes a huge difference in the lives of these pets.
+          Consider donating here:
         </p>
+        <button className="button">Donate</button>
       </div>
 
       {/* Articles Section */}
       <div className="container fade-in card">
         <h2 className="card-title">Articles</h2>
         <p className="card-description">
-          Discover stories of successful adoptions, insights into pet care, and how donations change lives.
+          Discover stories of successful adoptions, insights into pet care, and how donations change pet lives.
         </p>
-      </div>
-
-      {/* Newsletter Section */}
-      <div className="container fade-in card form-container">
-        <h2 className="card-title">Newsletter</h2>
-        <p className="card-description">
-          Join our newsletter to stay updated on the latest events, pet stories, and ways you can help.
-        </p>
-        <form>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input type="email" className="form-input" placeholder="Enter your email" />
-          </div>
-          <button className="button">Subscribe</button>
-        </form>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import AboutUs from './components/AboutUs';
 import PetsPage from './components/PetsPage';
 import RegisterPage from './components/RegisterPage';
 import ReleasePetPage from './components/ReleasePetPage';
@@ -15,6 +16,8 @@ const App = () => {
     switch(currentPage) {
       case 'home':
         return <HomePage setCurrentPage={setCurrentPage} />;
+      case 'aboutus':
+        return <AboutUs />;
       case 'pets':
         return <PetsPage />;
       case 'register':
