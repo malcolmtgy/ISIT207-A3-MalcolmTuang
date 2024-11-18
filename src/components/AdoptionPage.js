@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const AdoptionPage = ({ loggedInUser, selectedPet, setCurrentPage }) => {
   const [appointmentDate, setAppointmentDate] = useState("");
@@ -32,12 +33,15 @@ const AdoptionPage = ({ loggedInUser, selectedPet, setCurrentPage }) => {
   }
 
   return (
-    <div className="container fade-in">
+<div className="container fade-in">
       <div className="card form-container">
-        <h2 className="card-title">Adoption Appointment for {selectedPet}</h2>
+        <h2 className="card-title">Adoption Appointment for {selectedPet.name}</h2>
+        <p>Breed: {selectedPet.breed}</p>
+        <p>Age: {selectedPet.age} years</p>
+        <p>{selectedPet.description}</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label" htmlFor="date">
+            <label htmlFor="date" className="form-label">
               Select a Date:
             </label>
             <input
@@ -69,6 +73,12 @@ const AdoptionPage = ({ loggedInUser, selectedPet, setCurrentPage }) => {
       </div>
     </div>
   );
+};
+
+AdoptionPage.propTypes = {
+  loggedInUser: PropTypes.string,
+  selectedPet: PropTypes.object,
+  setCurrentPage: PropTypes.func,
 };
 
 export default AdoptionPage;

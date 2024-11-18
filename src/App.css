@@ -165,6 +165,22 @@ body {
   transition: border-color 0.3s;
 }
 
+/* Release pet form error styles */
+.input-error {
+  border-color: red;
+}
+
+.textarea-error {
+  border-color: red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Dropdown menu for user */
 .user-status {
   position: relative;
   display: flex;

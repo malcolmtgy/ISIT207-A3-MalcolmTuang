@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import placeHolderImage from '../assets/image-placeholder-300x200.png';
 
 const PetCard = ({ pet, handleAdoptClick }) => {
-  const imageUrl = pet.image && pet.image.trim() ? pet.image : placeHolderImage;
+  const imageUrl = pet.image?.trim() ? pet.image : placeHolderImage;
 
   return (
     <div className="pet-card fade-in">

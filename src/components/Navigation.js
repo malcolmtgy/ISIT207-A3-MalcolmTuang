@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoPawSharp } from 'react-icons/io5';
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiUser } from "react-icons/fi";
 
 const Navigation = ({ loggedInUser, setLoggedInUser, setCurrentPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -40,7 +40,7 @@ const Navigation = ({ loggedInUser, setLoggedInUser, setCurrentPage }) => {
 
         {/* User Status with Dropdown */}
         <div className="user-status">
-          <span>{loggedInUser ? `Welcome, ${loggedInUser}` : 'Not Logged In'}</span>
+          <span> <FiUser/> {loggedInUser ? ` Welcome, ${loggedInUser}` : 'Not Logged In'}</span>
           <button 
             className="dropdown-toggle" 
             onClick={() => setDropdownOpen(!dropdownOpen)}
