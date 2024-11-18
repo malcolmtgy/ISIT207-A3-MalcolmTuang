@@ -36,7 +36,8 @@ const ReleasePetPage = () => {
     <div className="container fade-in">
       <div className="card form-container">
         <h2 className="card-title">Release a Pet</h2>
-        <p className="card-description">Please provide details about the pet you wish to release</p>
+        <p className="card-description">Unable to care for your pet anymore? Here, you can release them into our care.</p>
+        <p className="card-description">Please provide details about the pet you wish to release:</p>
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
