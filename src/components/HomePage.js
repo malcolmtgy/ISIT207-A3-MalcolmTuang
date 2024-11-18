@@ -14,10 +14,17 @@ function HomePage({setCurrentPage}) {
       <div className="container fade-in card">
         <h2 className="card-title">Why adopt?</h2>
         <p className="card-description">
-          All pets in our shelters deserves a home, and most importantly happiness. 
-          Try as we might to provide that feeling, we can't do recreate that feeling of being in a loving home. That's where you come in. Adopt a pet today and give them the love they deserve.
-          We believe that every pet deserves a loving home, and we are committed to making that happen, regardless of the challenges we face. 
+          All pets in our shelters deserves a home, and most importantly happiness. <br />
+          We can't do recreate that feeling of being in a loving home. That's where you come in. Adopt a pet today and give them the love they deserve.<br />
           We are dedicated to finding the perfect match for every pet, and we are here to support you through the adoption process and beyond.
+        </p>
+      </div>
+
+      <div className="container fade-in card">
+        <h2 className="card-title">Unable to care for yours? Come to us!</h2>
+        <p className="card-description">
+          If you are unable to care for your pet, we are here to help. We provide a safe and loving environment for pets in need, and we are committed to finding them a loving home. <br />
+          Contact us today to learn more about our surrender process.
         </p>
       </div>
 
@@ -28,7 +35,7 @@ function HomePage({setCurrentPage}) {
           Every contribution, big or small, makes a huge difference in the lives of these pets.
           Consider donating here:
         </p>
-        <button className="button">Donate</button>
+        <button className="button" onClick={()=> setCurrentPage('donation')}>Donate</button>
       </div>
 
       {/* Articles Section */}

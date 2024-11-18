@@ -30,7 +30,7 @@ const ReleasePetPage = () => (
           className="button"
           onClick={(e) => {
             e.preventDefault();
-            alert('Release form would be submitted here');
+            alert('Submission successful!');
           }}
         >
           Submit Request
