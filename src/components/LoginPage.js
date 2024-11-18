@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const LoginPage = ({ setLoggedInUser }) => {
+const LoginPage = ({ setLoggedInUser, setCurrentPage }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,6 +17,7 @@ const LoginPage = ({ setLoggedInUser }) => {
     if (storedUser && storedUser.email === email && storedUser.password === hashPassword(password)) {
       setLoggedInUser(storedUser.name);
       alert('Login successful!');
+      setCurrentPage('home'); // Redirect to Home page
     } else {
       alert('Invalid email or password. Please try again.');
     }
@@ -59,8 +60,10 @@ const LoginPage = ({ setLoggedInUser }) => {
     </div>
   );
 };
+
 LoginPage.propTypes = {
   setLoggedInUser: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default LoginPage;

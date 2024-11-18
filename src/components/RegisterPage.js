@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const RegisterPage = () => {
+const RegisterPage = ({ setCurrentPage }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -14,15 +15,15 @@ const RegisterPage = () => {
     e.preventDefault();
 
     if (name && email && phone && password) {
-      // Save user data in localStorage
       const user = {
         name,
         email,
         phone,
-        password: hashPassword(password), // Save hashed password
+        password: hashPassword(password),
       };
       localStorage.setItem('user', JSON.stringify(user));
       alert('Registration successful!');
+      setCurrentPage('login'); // Redirect to Login page
     } else {
       alert('Please fill out all fields.');
     }
@@ -85,6 +86,10 @@ const RegisterPage = () => {
       </div>
     </div>
   );
+};
+
+RegisterPage.propTypes = {
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default RegisterPage;
