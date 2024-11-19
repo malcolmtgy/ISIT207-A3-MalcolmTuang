@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoPawSharp } from 'react-icons/io5';
 import { FiMenu, FiUser } from "react-icons/fi";
+import PropTypes from 'prop-types';
 
 const Navigation = ({ loggedInUser, setLoggedInUser, setCurrentPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -38,47 +39,62 @@ const Navigation = ({ loggedInUser, setLoggedInUser, setCurrentPage }) => {
           </button>
         </div>
 
-        {/* User Status with Dropdown */}
-        <div className="user-status">
-          <span> <FiUser/> {loggedInUser ? ` Welcome, ${loggedInUser}` : 'Not Logged In'}</span>
-          <button 
-            className="dropdown-toggle" 
+   {/* User Status with Dropdown */}
+   <div className="user-status">
+          <span>
+            <FiUser /> {loggedInUser ? `Welcome, ${loggedInUser}` : "Not Logged In"}
+          </span>
+          <button
+            className="dropdown-toggle"
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            aria-label="Toggle dropdown">
-          <FiMenu />
+            aria-label="Toggle dropdown"
+          >
+            <FiMenu />
           </button>
           {dropdownOpen && (
             <div className="dropdown-menu">
               {!loggedInUser ? (
                 <>
-                  <button 
-                    onClick={() => { 
-                      setCurrentPage('login'); 
-                      setDropdownOpen(false); 
-                    }} 
-                    className="dropdown-item">
+                  <button
+                    onClick={() => {
+                      setCurrentPage("login");
+                      setDropdownOpen(false);
+                    }}
+                    className="dropdown-item"
+                  >
                     Login
                   </button>
-                  <button 
-                    onClick={() => { 
-                      setCurrentPage('register'); 
-                      setDropdownOpen(false); 
-                    }} 
+                  <button
+                    onClick={() => {
+                      setCurrentPage("register");
+                      setDropdownOpen(false);
+                    }}
                     className="dropdown-item"
                   >
                     Register
                   </button>
                 </>
               ) : (
-                <button 
-                  onClick={() => { 
-                    handleLogout(); 
-                    setDropdownOpen(false); 
-                  }} 
-                  className="dropdown-item"
-                >
-                  Logout
-                </button>
+                <>
+                  <button
+                    onClick={() => {
+                      setCurrentPage("booking"); // Redirect to BookingPage
+                      setDropdownOpen(false);
+                    }}
+                    className="dropdown-item"
+                  >
+                    My Appointments
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleLogout(); // Logout user
+                      setDropdownOpen(false);
+                    }}
+                    className="dropdown-item"
+                  >
+                    Logout
+                  </button>
+                </>
               )}
             </div>
           )}
@@ -86,6 +102,12 @@ const Navigation = ({ loggedInUser, setLoggedInUser, setCurrentPage }) => {
       </div>
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  loggedInUser: PropTypes.string,
+  setLoggedInUser: PropTypes.func,
+  setCurrentPage: PropTypes.func,
 };
 
 export default Navigation;

@@ -7,8 +7,9 @@ import RegisterPage from './components/RegisterPage';
 import ReleasePetPage from './components/ReleasePetPage';
 import AdoptionPage from './components/AdoptionPage';
 import DonationPage from './components/DonationPage';
-import Footer from './components/Footer';
+import BookingPage from './components/BookingPage';
 import LoginPage from './components/LoginPage';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('home'); // Tracks current page
   const [loggedInUser, setLoggedInUser] = useState(null); // Tracks logged-in user
   const [selectedPet, setSelectedPet] = useState(null); // Tracks selected pet for adoption
+  const [bookedAppointment, setBookedAppointment] = useState(null); // Tracks the booked appointment
 
   const renderPage = () => {
     switch (currentPage) {
@@ -31,23 +33,37 @@ const App = () => {
           />
         );
       case 'register':
-        return <RegisterPage />;
+        return <RegisterPage setCurrentPage={setCurrentPage} />;
       case 'release':
         return <ReleasePetPage />;
       case 'login':
-        return <LoginPage setLoggedInUser={setLoggedInUser} />;
-      case 'adoption': 
+        return (
+          <LoginPage
+            setLoggedInUser={setLoggedInUser}
+            setCurrentPage={setCurrentPage}
+          />
+        );
+      case 'adoption':
         return (
           <AdoptionPage
             loggedInUser={loggedInUser}
-            selectedPet={selectedPet?.name || "No pet selected"} // Pass the selected pet
+            selectedPet={selectedPet} // Pass the selected pet object
             setCurrentPage={setCurrentPage}
+            setBookedAppointment={setBookedAppointment} // Pass booked appointment state setter
           />
         );
       case 'donation':
         return <DonationPage />;
+      case 'booking':
+        return (
+          <BookingPage
+            loggedInUser={loggedInUser}
+            bookedAppointment={bookedAppointment} // Pass the booked appointment
+            setCurrentPage={setCurrentPage}
+          />
+        );
       default:
-        return <HomePage />;
+        return <HomePage setCurrentPage={setCurrentPage} />;
     }
   };
 

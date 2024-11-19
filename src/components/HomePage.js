@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPaw } from 'react-icons/fa';
-
+import PropTypes from 'prop-types';
 function HomePage({setCurrentPage}) {
   return (
     <div>
@@ -47,7 +47,7 @@ function HomePage({setCurrentPage}) {
         </p>
         <h2>Article: 5 dog adoption stories that will melt your heart</h2>
         <p>Sometimes, it’s good to read about a good dog adoption story. After all, life can be so hard sometimes, however, little rays of light like these help us keep our faith in humanity, in the world, and in each oth...</p>
-        <button className="button" onClick={()=> 
+        <button onClick={()=> 
           window.open('https://fetchpetcare.com/blog/5-dog-adoption-stories-will-melt-heart/')}>
           Read More...
         </button>
@@ -55,5 +55,9 @@ function HomePage({setCurrentPage}) {
     </div>
   );
 }
+
+HomePage.propTypes = {
+  setCurrentPage: PropTypes.func
+};
 
 export default HomePage;

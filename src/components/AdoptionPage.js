@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const AdoptionPage = ({ loggedInUser, selectedPet, setCurrentPage }) => {
+const AdoptionPage = ({
+  loggedInUser,
+  selectedPet,
+  setCurrentPage,
+  setBookedAppointment, // Add setter for booked appointment
+}) => {
   const [appointmentDate, setAppointmentDate] = useState("");
   const [appointmentTime, setAppointmentTime] = useState("");
 
@@ -13,12 +18,29 @@ const AdoptionPage = ({ loggedInUser, selectedPet, setCurrentPage }) => {
       return;
     }
 
+    if (!selectedPet?.name) {
+      alert("No pet selected. Please go back and choose a pet.");
+      setCurrentPage("pets"); // Redirect to PetsPage
+      return;
+    }
+
+    // Save appointment details
+    const appointmentDetails = {
+      petName: selectedPet.name,
+      breed: selectedPet.breed,
+      age: selectedPet.age,
+      description: selectedPet.description,
+      date: appointmentDate,
+      time: appointmentTime,
+    };
+    setBookedAppointment(appointmentDetails); // Pass data to parent
+
     alert(
-      `Your appointment for viewing "${selectedPet}" has been successfully booked on ${appointmentDate} at ${appointmentTime}.`
+      `Your appointment for viewing "${selectedPet.name}" has been successfully booked on ${appointmentDate} at ${appointmentTime}.`
     );
 
-    // Navigate back to pets page or any other action
-    setCurrentPage("pets");
+    // Navigate to BookingPage
+    setCurrentPage("booking");
   };
 
   if (!loggedInUser) {
@@ -32,12 +54,23 @@ const AdoptionPage = ({ loggedInUser, selectedPet, setCurrentPage }) => {
     );
   }
 
+  if (!selectedPet) {
+    return (
+      <div className="container">
+        <h2>No pet selected for adoption.</h2>
+        <button onClick={() => setCurrentPage("pets")} className="button">
+          Go to Pets
+        </button>
+      </div>
+    );
+  }
+
   return (
-<div className="container fade-in">
+    <div className="container fade-in">
       <div className="card form-container">
         <h2 className="card-title">Adoption Appointment for {selectedPet.name}</h2>
-        <p>Breed: {selectedPet.breed}</p>
-        <p>Age: {selectedPet.age} years</p>
+        <p><strong>Breed:</strong> {selectedPet.breed}</p>
+        <p><strong>Age:</strong> {selectedPet.age} years</p>
         <p>{selectedPet.description}</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -79,6 +112,7 @@ AdoptionPage.propTypes = {
   loggedInUser: PropTypes.string,
   selectedPet: PropTypes.object,
   setCurrentPage: PropTypes.func,
+  setBookedAppointment: PropTypes.func, 
 };
 
 export default AdoptionPage;
