@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ISIT207-A3-MalcolmTuang/static/css/main.0cd1eb24.css",
+    "main.js": "/ISIT207-A3-MalcolmTuang/static/js/main.32e1132d.js",
+    "static/js/453.ab813285.chunk.js": "/ISIT207-A3-MalcolmTuang/static/js/453.ab813285.chunk.js",
+    "static/media/labrador.jpg": "/ISIT207-A3-MalcolmTuang/static/media/labrador.7fbf457929a3c820d4e6.jpg",
+    "static/media/beagle.jpg": "/ISIT207-A3-MalcolmTuang/static/media/beagle.6981d6bc9b41f566ec63.jpg",
+    "static/media/persian.jpg": "/ISIT207-A3-MalcolmTuang/static/media/persian.2e06d6632d802ca17673.jpg",
+    "static/media/spitz.jpg": "/ISIT207-A3-MalcolmTuang/static/media/spitz.cd40274901675b0754ca.jpg",
+    "static/media/hero-image.jpg": "/ISIT207-A3-MalcolmTuang/static/media/hero-image.00913ad03ee986f08188.jpg",
+    "static/media/retriever-golden.jpg": "/ISIT207-A3-MalcolmTuang/static/media/retriever-golden.65e24fc75f29a5223707.jpg",
+    "static/media/paynow.jpg": "/ISIT207-A3-MalcolmTuang/static/media/paynow.c42baae8a1e24a2dabc5.jpg",
+    "static/media/dachshund.jpg": "/ISIT207-A3-MalcolmTuang/static/media/dachshund.fae015efb8f3edefba76.jpg",
+    "static/media/siamese.jpg": "/ISIT207-A3-MalcolmTuang/static/media/siamese.4c296cdac4983420d29c.jpg",
+    "static/media/bengal.jpg": "/ISIT207-A3-MalcolmTuang/static/media/bengal.9b4441522193e07d2799.jpg",
+    "index.html": "/ISIT207-A3-MalcolmTuang/index.html",
+    "main.0cd1eb24.css.map": "/ISIT207-A3-MalcolmTuang/static/css/main.0cd1eb24.css.map",
+    "main.32e1132d.js.map": "/ISIT207-A3-MalcolmTuang/static/js/main.32e1132d.js.map",
+    "453.ab813285.chunk.js.map": "/ISIT207-A3-MalcolmTuang/static/js/453.ab813285.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cd1eb24.css",
+    "static/js/main.32e1132d.js"
+  ]
+}
